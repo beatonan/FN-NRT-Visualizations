@@ -1,0 +1,24 @@
+
+---
+title: "Test"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: pdf_document
+classoption: landscape
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Seasonal Plots
+
+```{r fdd, echo=FALSE, results='hide',message=FALSE, fig.height=5, fig.width=8, fig.align="center"}
+library(here)
+source(here::here("scripts", "moose fdd forecast and historic.R"))
+```
+
+
+```{r sd, echo=FALSE, results='hide',message=FALSE, fig.height=6, fig.width=9, fig.align="center"}
+library(here)
+source(here::here("scripts", "moose snow depth forecast and historic.R"))
+```

@@ -1,0 +1,88 @@
+---
+title: "Moose River Conditions Report"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: pdf_document
+classoption: landscape
+---
+
+
+```{r setup, include=FALSE}
+library(here)
+knitr::opts_chunk$set(echo = TRUE)
+
+#set path
+path <- "C:/Users/beatonan/OneDrive - Government of Ontario/Documents/My Documents/R/FN_Hydro_FY18_19/"
+
+#set libraries
+library(lubridate)
+#library(here)
+library(readxl)
+library(weathercan)
+library(kiwisR)
+library(tidyhydat)
+#library(conflicted)
+library(tidyverse)
+library(zoo)
+library(rforecastca)
+
+#source functions
+source(paste0(path, "scripts/moose river conditions functions.R"))
+```
+
+## Seasonal Plots
+
+```{r fdd, echo=FALSE, results='hide',message=FALSE, fig.height=5, fig.width=8, fig.align="center"}
+
+fdd_plot()
+
+#source(paste0(path, "scripts/", "moose fdd forecast and historic.R"))
+```
+
+```{r sd, echo=FALSE, results='hide',message=FALSE, fig.height=6, fig.width=9, fig.align="center"}
+
+sd_plot()
+
+#source(paste0(path, "scripts/", "moose snow depth forecast and historic.R"))
+```
+
+## Spring Plots
+
+```{r pdd, echo=FALSE, results='hide',message=FALSE, fig.height=6, fig.width=9, fig.align="center"}
+
+pdd_plot()
+
+#source(paste0(path, "scripts/", "moose cumulative degree days.R"))
+```
+
+```{r cum_rain, echo=FALSE, results='hide',message=FALSE, fig.height=6, fig.width=9, fig.align="center"}
+
+cum_rain_plot()
+
+#source(paste0(path, "scripts/", "moose cumulative rain forecast and historic.R"))
+```
+
+```{r sdepl, echo=FALSE, results='hide',message=FALSE, fig.height=6, fig.width=9, fig.align="center"}
+
+depl_plot()
+
+#source(paste0(path, "scripts/", "moose depth depletion current and historic.R"))
+```
+
+```{r cum_rain_sd, echo=FALSE, results='hide',message=FALSE, fig.height=6, fig.width=9, fig.align="center"}
+
+cum_rain_depl_plot()
+
+#source(paste0(path, "scripts/", "cumulative rain plus depth depletion current and historic.R"))
+```
+
+```{r flow, echo=FALSE, results='hide',message=FALSE, fig.height=6, fig.width=9, fig.align="center"}
+
+flow_plot()
+
+#source(paste0(path, "scripts/", "moose at moose crossing flow with historic.R"))
+```
+
+```{r, include=TRUE, fig.align="center", echo=FALSE}
+
+knitr::include_graphics(paste0(path, "plots/", "Moose Breakup Timing Plots.pdf"))
+```

@@ -1,0 +1,142 @@
+---
+title: "Historic Hudson James Bay Coast Highwater and Hydrometric Variables"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+#load libraries
+library(here)
+library(readxl)
+library(weathercan)
+library(kiwisR)
+library(tidyhydat)
+library(conflicted)
+library(tidyverse)
+library(zoo)
+library(rforecastca)
+library(plotly)
+library(crosstalk)
+library(lubridate)
+library(DT)
+library(flexdashboard)
+
+conflict_prefer("filter", "dplyr")
+conflict_prefer("here", "here")
+conflict_prefer("yday", "lubridate")
+conflict_prefer("month", "lubridate")
+conflict_prefer("year", "lubridate")
+
+#source functions
+
+source(here::here("scripts", "NRT interactive graphing functions.R"))
+
+```
+
+# {.tabset}
+
+## Moose River {.tabset}
+
+### Flow and Level
+
+#### Flow
+
+```{r warning=FALSE,message=FALSE, echo=FALSE, fig.height=6, fig.width=12}
+
+mse_04LG004_q()
+
+```
+
+#### Level
+
+```{r warning=FALSE,message=FALSE, echo=FALSE, fig.height=6, fig.width=12}
+
+mse_04LG004_lvl()
+
+```
+
+### Climate
+
+#### Degree Days of Freezing
+
+```{r warning=FALSE,message=FALSE, echo=FALSE, fig.height=6, fig.width=12}
+
+fdd_plot()
+
+```
+
+#### Snow Depth
+
+```{r warning=FALSE,message=FALSE, echo=FALSE, fig.height=6, fig.width=12}
+
+sd_plot()
+
+```
+
+#### Positive Degree Days of Warming
+
+```{r warning=FALSE,message=FALSE, echo=FALSE, fig.height=6, fig.width=12}
+
+pdd_plot()
+
+```
+
+#### Cumulative Rain
+
+```{r warning=FALSE,message=FALSE, echo=FALSE, fig.height=6, fig.width=12}
+
+cum_rain_plot()
+
+```
+
+#### Snow Depth Depletion
+
+```{r warning=FALSE,message=FALSE, echo=FALSE, fig.height=6, fig.width=12}
+
+depl_plot()
+
+```
+
+#### Cumulative Rain Plus Snow Depth Depletion
+
+```{r warning=FALSE,message=FALSE, echo=FALSE, fig.height=6, fig.width=12}
+
+cum_rain_depl_plot()
+
+```
+
+## Albany River 
+
+### Flow
+
+```{r warning=FALSE,message=FALSE, echo=FALSE, fig.height=6, fig.width=12}
+
+alb_04HA001_q()
+
+```
+
+### Level
+
+```{r warning=FALSE,message=FALSE, echo=FALSE, fig.height=6, fig.width=12}
+
+alb_04HA001_lvl()
+
+```
+
+## Attawapiskat River 
+
+### Flow
+
+```{r warning=FALSE,message=FALSE, echo=FALSE, fig.height=6, fig.width=12}
+
+att_04FC001_q()
+
+```
+
+### Level
+
+```{r warning=FALSE,message=FALSE, echo=FALSE, fig.height=6, fig.width=12}
+
+att_04FC001_lvl()
+
+```

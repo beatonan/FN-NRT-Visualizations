@@ -1,0 +1,21 @@
+---
+title: "test_here"
+author: "Andy Beaton"
+date: "January 17, 2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r path, echo=F, message=F, warning=F}
+library(here)
+
+path <- "test_path"
+
+path
+```
+
+
